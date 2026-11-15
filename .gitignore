@@ -1,0 +1,11 @@
+# Everything is out of scope by default. Only the allowlist is re-admitted.
+/*
+!/.gitignore
+!/AGENTS.md
+!/LICENSE
+!/README.md
+!/assets/
+!/skills/
+
+# Host noise inside allowlisted paths.
+.DS_Store
