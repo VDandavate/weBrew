@@ -1,5 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="84" height="20" role="img" aria-label="version: 0.1.0">
-  <title>version: 0.1.0</title>
-  <rect width="84" height="20" rx="3" fill="#2c3e50"/>
-  <text x="42" y="14" fill="#ffffff" font-family="Verdana, Geneva, DejaVu Sans, sans-serif" font-size="11" text-anchor="middle">v0.1.0</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="90" height="22" role="img" aria-label="Version 0.1.0">
+  <title>v0.1.0</title>
+  <linearGradient id="g4" x1="0" y1="0" x2="90" y2="0">
+    <stop offset="0%" stop-color="#43e97b"/>
+    <stop offset="100%" stop-color="#38f9d7"/>
+  </linearGradient>
+  <rect width="90" height="22" rx="11" fill="url(#g4)"/>
+  <text x="45" y="15.5" fill="#1a1a2e" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" text-anchor="middle">v0.1.0</text>
 </svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="22" role="img" aria-label="Spec-driven">
+  <title>Spec-driven</title>
+  <linearGradient id="g7" x1="0" y1="0" x2="100" y2="0">
+    <stop offset="0%" stop-color="#ff9a9e"/>
+    <stop offset="100%" stop-color="#fecfef"/>
+  </linearGradient>
+  <rect width="100" height="22" rx="11" fill="url(#g7)"/>
+  <text x="50" y="15.5" fill="#1a1a2e" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Spec-driven</text>
+</svg>

@@ -1,5 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="150" height="20" role="img" aria-label="format: Agent Skills">
-  <title>format: Agent Skills</title>
-  <rect width="150" height="20" rx="3" fill="#2c3e50"/>
-  <text x="75" y="14" fill="#ffffff" font-family="Verdana, Geneva, DejaVu Sans, sans-serif" font-size="11" text-anchor="middle">format Agent Skills</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="22" role="img" aria-label="Agent Skills format">
+  <title>Agent Skills format</title>
+  <linearGradient id="g3" x1="0" y1="0" x2="130" y2="0">
+    <stop offset="0%" stop-color="#f093fb"/>
+    <stop offset="100%" stop-color="#f5576c"/>
+  </linearGradient>
+  <rect width="130" height="22" rx="11" fill="url(#g3)"/>
+  <text x="65" y="15.5" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Agent Skills</text>
 </svg>
