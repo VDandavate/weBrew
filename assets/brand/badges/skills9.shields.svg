@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="94" height="20" role="img" aria-label="skills: 9">
+  <title>skills: 9</title>
+  <linearGradient id="a" x1="0" y1="0" x2="94" y2="0">
+    <stop offset="0%" stop-color="#555"/>
+    <stop offset="100%" stop-color="#333"/>
+  </linearGradient>
+  <mask id="m">
+    <rect width="94" height="20" rx="3" fill="#fff"/>
+  </mask>
+  <g mask="url(#m)">
+    <rect width="48" height="20" fill="#555"/>
+    <rect x="48" width="46" height="20" fill="#4c1"/>
+  </g>
+  <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11">
+    <text x="24" y="14" fill="#010101" fill-opacity=".3">skills</text>
+    <text x="24" y="13">skills</text>
+    <text x="71" y="14" fill="#010101" fill-opacity=".3">9</text>
+    <text x="71" y="13">9</text>
+  </g>
+</svg>

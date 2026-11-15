@@ -9,14 +9,12 @@
 </p>
 
 <p align="center">
-  <img src="assets/brand/badges/licenseMit.svg" alt="License: MIT" />
-  <img src="assets/brand/badges/skillsNine.svg" alt="9 skills" />
-  <img src="assets/brand/badges/formatAgentSkills.svg" alt="Agent Skills format" />
-  <img src="assets/brand/badges/version.svg" alt="Version 0.1.0" />
+  <img src="assets/brand/badges/license.shields.svg" alt="license: MIT" />
+  <img src="assets/brand/badges/skills9.shields.svg" alt="skills: 9" />
+  <img src="assets/brand/badges/format.shields.svg" alt="format: Agent Skills" />
+  <img src="assets/brand/badges/version.shields.svg" alt="version: 0.1.0" />
   <br/>
-  <img src="assets/brand/badges/portable.svg" alt="Portable" />
-  <img src="assets/brand/badges/selfcontained.svg" alt="Self-contained" />
-  <img src="assets/brand/badges/specdriven.svg" alt="Spec-driven" />
+  <img src="assets/brand/badges/portable.shields.svg" alt="portable: yes" />
 </p>
 
 ---
