@@ -1,6 +1,6 @@
 ---
 name: assure-quality
-description: Coordinate a quality pass across specialists: assess, propose, wait for approval, dispatch audit, refinement, and verification, then require independent verification before calling anything done. Use when a bounded remediation or a whole-repository quality pass needs more than one skill. Do not use when one check settles the question, or when remediation has not been approved.
+description: "Coordinate a quality pass across specialists: assess, propose, wait for approval, dispatch audit, refinement, and verification, then require independent verification before calling anything done. Use when a bounded remediation or a whole-repository quality pass needs more than one skill. Do not use when one check settles the question, or when remediation has not been approved."
 license: MIT
 ---
 
