@@ -5,7 +5,12 @@
 </p>
 
 <p align="center">
-  <em>Nine portable Agent Skills for the software lifecycle. From a rough idea to reviewed, verified, archived delivery.</em>
+  <img src="assets/brand/weBrewAvatar.png" alt="weBrew avatar" width="80" />
+</p>
+
+<p align="center">
+  <b>Nine portable Agent Skills for the software lifecycle.</b><br/>
+  From a rough idea to reviewed, verified, archived delivery.
 </p>
 
 <p align="center">
@@ -17,122 +22,115 @@
   <img src="assets/brand/badges/portable.shields.svg" alt="portable: yes" />
 </p>
 
+<p align="center">
+  <a href="#the-problem">The problem</a> ·
+  <a href="#the-workflow">The workflow</a> ·
+  <a href="#the-nine-skills">The nine skills</a> ·
+  <a href="#install">Install</a> ·
+  <a href="#quick-start">Quick start</a> ·
+  <a href="#trust-model">Trust model</a> ·
+  <a href="#faq">FAQ</a> ·
+  <a href="#credits">Credits</a> ·
+  <a href="#license">License</a>
+</p>
+
+Agents write code fast. They also skip the parts that make software trustworthy: agreeing what "done" means, reviewing the plan before building it, proving the change works, leaving a record someone else can follow.
+
+Your agent can build a feature in an afternoon. weBrew helps you decide whether it should exist at all.
+
+weBrew puts those parts back. Each skill is a short, self-contained instruction set an agent loads when the task matches. No framework, no runtime, no CLI. Copy or symlink the directories you want into your host's skill directory.
+
 ---
 
-## Why weBrew
+## 🧩 The problem
 
-Agents write code fast. They also skip the parts that make software *trustworthy*:
-
-- agreeing what "done" actually means
-- reviewing the plan **before** building it
-- proving the change works
-- leaving a record someone else can follow
-
-The result? A lot of motion. Very little confidence. Work that can't be checked, decisions nobody wrote down, tests that were never run, and a diff that looks finished until it meets production.
-
-**weBrew puts those parts back.**
-
-It's not a framework, a runtime, or a CLI. Each skill is a short, self-contained instruction set an agent loads when the task matches. Used alone, a skill fixes one habit. Used together, they form a workflow that produces work you can inspect, challenge, and hand over.
-
----
-
-## What makes weBrew different
-
-| ✨ | Trait | What it means |
+| Problem | What happens | What weBrew does |
 |---|---|---|
-| 🎯 | **Plain Markdown** | A skill is a directory with a `SKILL.md`. Nothing to compile, nothing to run. |
-| 🧩 | **Self-contained** | No shared library, no cross-skill imports, no dependency graph. |
-| 🎒 | **Portable** | Copy or symlink into any host that speaks Agent Skills. |
-| 📝 | **Reports first** | Review, diagnosis, and status skills *never edit*. They report. |
-| 📋 | **Spec-driven** | One spec per feature, broken into work units with scope and acceptance. |
-| 🛡️ | **Approval-gated** | Destructive actions need a preview and an explicit yes. |
-| 🤝 | **Human owns delivery** | Agents may commit. Merge, push, release, archive — you decide. |
+| No shared definition of done | Agents build past acceptance. Nothing is verifiable. | One spec per feature, with work units and acceptance. |
+| Review happens after the build | Rework is expensive. Problems surface late. | Read-only adversarial review before anything is built. |
+| No record of what changed | Diffs look finished until production. | Evidence, approvals, and a trail someone else can follow. |
 
 ---
 
-## The workflow
+## 🔄 The workflow
 
 ```
-IDEA → 🔥 Grill Ideas to Specs → 🔍 Review the Specs → 🏗️ Build the Specs
-                                                      ↓
-                        ✨ QUALITY LOOP (cycle as needed)
-              ┌──────────────┐  ┌──────────────┐  ┌────────────────┐
-              │ 🧭 Audit &   │  │ 🧪 Test &    │  │ 🎯 Assure      │
-              │    Refine    │  │    Verify    │  │    Quality     │
-              │  map→rank→   │  │  risk matrix │  │  coordinates   │
-              │  cleanups    │  │  → evidence  │  │  independent   │
-              └──────────────┘  └──────────────┘  └────────────────┘
-                                                      ↓
-                                    📦 Archive the Specs → ✅ DELIVERED
+Idea
+  ↓
+🔥 Grill Ideas to Specs → 🔍 Review the Specs → 🏗️ Build the Specs
+                                              ↓
+                                    ┌─────────────────────────┐
+                                    │   QUALITY LOOP          │
+                                    │  🧭 Audit and Refine    │
+                                    │  🧪 Test and Verify     │
+                                    │  🎯 Assure Quality      │
+                                    └─────────────────────────┘
+                                              ↓
+                                    📦 Archive the Specs → ✅ Delivered
 ```
 
-**At any point:** 🐛 `Diagnose the Bug` · 📊 `Check Status`
+At any point: 🐛 Diagnose the Bug · 📊 Check Status
 
-Stages are optional and repeatable. Small change = one skill. Large build = cycle the quality loop until satisfied.
-
----
-
-## The nine skills
-
-### 🎨 Shape the work
-
-| Skill | What it does | When to reach for it |
-|---|---|---|
-| **Grill Ideas to Specs** | Turns a vague idea into an approved spec, one question at a time. Marks a recommendation each turn. | You know *what* you want but not *how* to specify it. |
-| **Review the Specs** | Read-only adversarial review. Finds ambiguity, untestable acceptance, scope creep, dependency gaps. | A spec looks ready. You want a second pair of eyes that *hunts for problems*. |
-
-### 🏗️ Build
-
-| Skill | What it does | When to reach for it |
-|---|---|---|
-| **Build the Specs** | Picks the next eligible spec (or the one you name). Builds it unit by unit: test-first, gate, commit, record. One spec per run. Hard stop. | You have approved specs and unfinished units. Or you want to build *this specific spec* now. |
-
-### ✨ Assure
-
-| Skill | What it does | When to reach for it |
-|---|---|---|
-| **Audit and Refine** | **Phase 1 (audit):** Maps the code, states the model, runs safe checks, ranks defects (bugs, security, data loss, scale) and debt (dead code, duplication, speculation, standards breaks). **Phase 2 (refine):** Applies *approved* cleanups one commit at a time, behavior proven unchanged. | Code needs a deep quality read. Or you have approved dead code/duplication to remove. |
-| **Test and Verify** | Builds a risk matrix. Runs the cheapest discriminating checks first. Records exact commands and results. Classifies: confirmed defect, suspected risk, coverage gap, unverified, not run. | A change, unit, or repo needs verification before it's called done. |
-| **Assure Quality** | Coordinates the pass: assess → propose batches → wait for approval → dispatch → require *independent* verification → reconcile. Never self-approves. | A quality pass needs multiple specialists and no self-grading. |
-
-### 🛠️ Operate
-
-| Skill | What it does | When to reach for it |
-|---|---|---|
-| **Diagnose the Bug** | Builds a failing signal. Minimizes. Bisects. Tests hypotheses. Confirms the cause with evidence. Leaves a red regression test. Hands off the fix scope. | Something's broken and the cause is unknown. |
-| **Archive the Specs** | Verifies completion. Previews the move. Gets approval. Archives without overwriting. Updates broken references. | Every unit is complete, verified, and you want the records retired. |
-| **Check Status** | Reads Git, specs, approvals, evidence. Reconciles contradictions. Reports complete / in progress / blocked / unverified / not started. Changes nothing. | You need to know where things stand. Or a session resumes. |
+Stages are optional and repeatable. A small change uses one skill. A large build cycles the quality loop until you are satisfied.
 
 ---
 
-## Install
+## 📋 The nine skills
+
+| Skill | Does | Reach for it when |
+|---|---|---|
+| 🎨 **Grill Ideas to Specs** | Turns a vague idea into an approved spec, one question at a time. | You know what you want but not how to specify it. |
+| 🔍 **Review the Specs** | Read-only adversarial review of a spec. | A spec looks ready and you want problems found first. |
+| 🏗️ **Build the Specs** | Builds one spec unit by unit: test first, gate, commit, record. | You have approved specs and open units. |
+| 🧭 **Audit and Refine** | Maps code, ranks defects and debt, applies approved cleanups. | Code needs a deep quality read. |
+| 🧪 **Test and Verify** | Risk matrix, cheapest checks first, labeled evidence. | A change needs verification before it is done. |
+| 🎯 **Assure Quality** | Coordinates assess → propose → approve → dispatch → verify → reconcile. Never self-approves. | A quality pass needs multiple specialists. |
+| 🐛 **Diagnose the Bug** | Failing signal, bisect, evidence, regression test. | Something is broken and the cause is unknown. |
+| 📦 **Archive the Specs** | Verifies completion, previews the move, archives without overwriting. | Every unit is complete and records should be retired. |
+| 📊 **Check Status** | Reads Git, specs, approvals, evidence. Reports state. Changes nothing. | You need to know where things stand. |
+
+<details>
+<summary>Full skill descriptions</summary>
+
+**Grill Ideas to Specs**: Turns a vague idea into an approved spec, one question at a time. Marks a recommendation each turn. Writes one spec per feature with work units in dependency order, then waits for your approval.
+
+**Review the Specs**: Read-only adversarial review. Finds ambiguity, untestable acceptance, scope creep, and dependency gaps. Returns ready, ready with changes, or not ready, with evidence.
+
+**Build the Specs**: Picks the next eligible spec, or the one you name. Builds it unit by unit. One spec per run. Hard stop. Refuses to run two specs whose units touch the same files.
+
+**Audit and Refine**: Phase 1 audits: maps the code, states the model, runs safe checks, ranks defects (bugs, security, data loss, scale) and debt (dead code, duplication, speculation, standards breaks) P0 to P3. Phase 2 refines: applies approved cleanups one commit at a time, behavior proven unchanged.
+
+**Test and Verify**: Builds a risk matrix. Runs the cheapest discriminating checks first. Records exact commands and results. Classifies findings as confirmed defect, suspected risk, coverage gap, unverified, or not run.
+
+**Assure Quality**: Coordinates the pass: assess, propose batches, wait for approval, dispatch, require independent verification, reconcile. Never self-approves.
+
+**Diagnose the Bug**: Builds a failing signal, minimizes, bisects, tests hypotheses, confirms the cause with evidence, leaves a red regression test, and hands off the fix scope.
+
+**Archive the Specs**: Verifies completion. Previews the move. Gets approval. Archives without overwriting. Updates broken references.
+
+**Check Status**: Reads Git, specs, approvals, and evidence. Reconciles contradictions. Reports complete, in progress, blocked, unverified, or not started. Changes nothing.
+
+</details>
+
+---
+
+## 📦 Install
 
 Copy or symlink the skill directories you want into your host's skill directory. A skill is a directory containing `SKILL.md` with `name` and `description` metadata.
 
-**One skill:**
+`<name>` is the skill's directory name: `archive-the-specs`, `assure-quality`, `audit-and-refine`, `build-the-specs`, `check-status`, `diagnose-the-bug`, `grill-ideas-to-specs`, `review-the-specs`, `test-and-verify`.
 
-```bash
-mkdir -p <your-host-skill-directory>
-cp -R skills/build-the-specs <your-host-skill-directory>/
-```
-
-**All nine:**
-
-```bash
-cp -R skills/* <your-host-skill-directory>/
-```
-
-**Link instead of copy** (local edits stay live):
-
-```bash
-ln -s "$PWD/skills/build-the-specs" <your-host-skill-directory>/build-the-specs
-```
+| Scope | Command |
+|---|---|
+| One skill | `cp -R skills/<name> <your-host-skill-directory>/` |
+| All nine | `cp -R skills/* <your-host-skill-directory>/` |
+| Link instead | `ln -s "$PWD/skills/<name>" <your-host-skill-directory>/<name>` |
 
 Confirm discovery by listing what the host reports. A skill that loads without a description has a malformed metadata block.
 
 ---
 
-## Quick start
+## 🚀 Quick start
 
 ```
 You:    I want to add saved searches to the dashboard, but I haven't
@@ -145,7 +143,7 @@ Agent:  [Grill Ideas to Specs]
         C) They get notified when new results match
 ```
 
-The skill asks one question at a time, marks a recommendation, records the answer. When outcome, boundary, non-goals, failure path, and acceptance are settled, it writes one spec per feature with work units in dependency order. Then it waits for your approval.
+The skill asks one question at a time, marks a recommendation, and records the answer. When outcome, boundary, non-goals, failure path, and acceptance are settled, it writes one spec per feature with work units in dependency order. Then it waits for your approval.
 
 From there:
 
@@ -157,26 +155,7 @@ Archive the Specs  →  after every unit is verified and you approve
 
 ---
 
-## Worked scenarios
-
-**🎯 A feature with several units**  
-Grill Ideas to Specs writes one spec. Review the Specs challenges it. Build the Specs counts what remains, orders units, lands one commit + gate result per unit, recording as it goes.
-
-**✈️ Two specs in flight**  
-Build the Specs builds the one that unblocks the other first. Refuses to run both when their units touch the same files.
-
-**🐛 A defect with an unknown cause**  
-Diagnose the Bug builds a failing signal, bisects, confirms the cause with evidence, writes a regression test. The fix goes through a spec — built and recorded like anything else.
-
-**🏚️ A repository nobody has touched in a year**  
-Audit and Refine maps what the code does, tests executable claims, ranks what's stale, duplicated, or missing. Approved cleanups applied one commit at a time, behavior unchanged.
-
-**🚀 A quality pass before release**  
-Assure Quality dispatches audit, refinement, and verification. Requires an independent verifier before anything is called done.
-
----
-
-## Trust model
+## 🛡️ Trust model
 
 - **Reports first.** Review, diagnosis, and status skills never edit. They report.
 - **Approval gates.** Destructive or irreversible actions need a preview and an explicit yes.
@@ -187,38 +166,45 @@ Assure Quality dispatches audit, refinement, and verification. Requires an indep
 
 ---
 
-## How skills load
+<details>
+<summary>How skills load</summary>
 
 Loading happens in three tiers:
 
-1. **Discovery** — host reads only `name` and `description`
-2. **Match** — host loads the full `SKILL.md` when a request matches the description
-3. **Deep** — `references/` or `assets/` read only if instructions call for them
+1. **Discovery**: host reads only `name` and `description`
+2. **Match**: host loads the full `SKILL.md` when a request matches the description
+3. **Deep**: `references/` or `assets/` read only if instructions call for them
 
-That's why each description states three things: what the skill does, when to use it, and **when not to**. The third clause keeps the wrong skill from firing.
+That is why each description states what the skill does, when to use it, and when not to. The third clause keeps the wrong skill from firing.
 
 If your host supports explicit invocation, call the skill by name. If not, describe the work and let the description match. There is no `webrew` command and no launcher.
 
----
+</details>
 
-## Repository rules
+<details>
+<summary>Repository rules</summary>
 
 This repo tracks only its allowlist: `README.md`, `AGENTS.md`, `LICENSE`, `.gitignore`, `assets/`, and `skills/`. Everything else is ignored by default. A new top-level path needs explicit approval.
 
-Agent-facing rules — skill contract, permission model, naming, verification — are in [`AGENTS.md`](AGENTS.md).
+Agent-facing rules cover the skill contract, permission model, naming, and verification. They are in `AGENTS.md`.
+
+</details>
 
 ---
 
-## FAQ
+## ❓ FAQ
 
-**Do I need all nine?** No. Each skill stands alone; most start with Grill Ideas to Specs + Build the Specs.  
-**Will it commit?** Yes — explicit paths only. No pushes, merges, or tags without you.  
-**Two specs at once?** Only if units don't share files. Build the Specs refuses collisions.  
-**Spec is wrong?** Review the Specs returns ready / ready with changes / not ready, with evidence.
+**Do I need all nine?** No. Each skill stands alone. Most start with Grill Ideas to Specs plus Build the Specs.
+
+**Will it commit?** Yes, explicit paths only. No pushes, merges, or tags without you.
+
+**Two specs at once?** Only if units do not share files. Build the Specs refuses collisions.
+
+**Spec is wrong?** Review the Specs returns ready, ready with changes, or not ready, with evidence.
 
 ---
 
-## Credits
+## 🏷️ Credits
 
 - Agent Skills format: [agentskills.io/specification](https://agentskills.io/specification)
 - README inspiration: [Awesome README](https://github.com/matiassingers/awesome-readme)
@@ -227,10 +213,10 @@ Skill set is original work.
 
 ---
 
-## Version
+## 📄 License
 
-0.1.0
+MIT: see [`LICENSE`](LICENSE).
 
-## License
+Version 0.1.0.
 
-MIT — see [`LICENSE`](LICENSE).
+<p align="center"><a href="#webrew">Back to top</a></p>
