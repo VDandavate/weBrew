@@ -88,7 +88,7 @@ Copy or symlink the skill directories you want into your host's skill directory.
 | Scope | Command |
 |---|---|
 | One skill | `cp -R skills/<name> <your-host-skill-directory>/` |
-| All nine | `cp -R skills/* <your-host-skill-directory>/` |
+| All nine | `cp -R skills/*/ <your-host-skill-directory>/` |
 | Link instead | `ln -s "$PWD/skills/<name>" <your-host-skill-directory>/<name>` |
 
 Confirm discovery by listing what the host reports. A skill that loads without a description has a malformed metadata block.
