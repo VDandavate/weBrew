@@ -93,27 +93,33 @@ Copy or symlink the skill directories you want into your host's skill directory.
 
 Confirm discovery by listing what the host reports. A skill that loads without a description has a malformed metadata block.
 
-### Global baseline
+### Global baseline and host paths
 
-`skills/AGENTS.md` holds defaults that apply to every project: naming, rule-file discovery, git authorization, data safety. Link it once into each host's user-level instruction path. Project `AGENTS.md` files still take precedence.
+`skills/AGENTS.md` holds defaults that apply to every project: naming, rule-file discovery, git authorization, data safety. Each host reads one user-level instruction file and one user-level skills directory.
 
-| Host | User-level path |
-|---|---|
-| Codex | `~/.codex/AGENTS.md` |
-| opencode | `~/.config/opencode/AGENTS.md` |
-| Kilo | `~/.config/kilo/AGENTS.md` |
-| Zed | `~/.config/zed/AGENTS.md` |
-| Antigravity | `~/.gemini/AGENTS.md` |
+| Host | Instructions | Skills |
+|---|---|---|
+| Codex | `~/.codex/AGENTS.md` | `~/.codex/skills/` |
+| opencode | `~/.config/opencode/AGENTS.md` | `~/.config/opencode/skills/` |
+| Kilo | `~/.config/kilo/AGENTS.md` | `~/.agents/skills/` |
+| Zed | `~/.config/zed/AGENTS.md` | `~/.agents/skills/` |
+| Antigravity | `~/.gemini/AGENTS.md` | `~/.gemini/config/skills/` |
 
 ```sh
+mkdir -p ~/.codex/skills ~/.config/opencode/skills ~/.agents/skills ~/.gemini/config/skills
 ln -s "$PWD/skills/AGENTS.md" ~/.codex/AGENTS.md
 ln -s "$PWD/skills/AGENTS.md" ~/.config/opencode/AGENTS.md
 ln -s "$PWD/skills/AGENTS.md" ~/.config/kilo/AGENTS.md
 ln -s "$PWD/skills/AGENTS.md" ~/.config/zed/AGENTS.md
 ln -s "$PWD/skills/AGENTS.md" ~/.gemini/AGENTS.md
+for d in "$PWD"/skills/*/; do
+  for root in ~/.codex/skills ~/.config/opencode/skills ~/.agents/skills ~/.gemini/config/skills; do
+    ln -sfn "$d" "$root/$(basename "$d")"
+  done
+done
 ```
 
-Editing `skills/AGENTS.md` updates every host at once. If a host replaces its file (some tools write through their settings UI), delete that path and link it again.
+Editing a skill or the baseline updates every host at once. Project `AGENTS.md` files still take precedence. If a host replaces its file (some tools write through their settings UI), delete that path and link it again.
 
 ## Quick start
 
