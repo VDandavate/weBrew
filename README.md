@@ -93,6 +93,28 @@ Copy or symlink the skill directories you want into your host's skill directory.
 
 Confirm discovery by listing what the host reports. A skill that loads without a description has a malformed metadata block.
 
+### Global baseline
+
+`skills/AGENTS.md` holds defaults that apply to every project: naming, rule-file discovery, git authorization, data safety. Link it once into each host's user-level instruction path. Project `AGENTS.md` files still take precedence.
+
+| Host | User-level path |
+|---|---|
+| Codex | `~/.codex/AGENTS.md` |
+| opencode | `~/.config/opencode/AGENTS.md` |
+| Kilo | `~/.config/kilo/AGENTS.md` |
+| Zed | `~/.config/zed/AGENTS.md` |
+| Antigravity | `~/.gemini/AGENTS.md` |
+
+```sh
+ln -s "$PWD/skills/AGENTS.md" ~/.codex/AGENTS.md
+ln -s "$PWD/skills/AGENTS.md" ~/.config/opencode/AGENTS.md
+ln -s "$PWD/skills/AGENTS.md" ~/.config/kilo/AGENTS.md
+ln -s "$PWD/skills/AGENTS.md" ~/.config/zed/AGENTS.md
+ln -s "$PWD/skills/AGENTS.md" ~/.gemini/AGENTS.md
+```
+
+Editing `skills/AGENTS.md` updates every host at once. If a host replaces its file (some tools write through their settings UI), delete that path and link it again.
+
 ## Quick start
 
 ```

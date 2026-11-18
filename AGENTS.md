@@ -25,12 +25,14 @@ LICENSE
 assets/
   brand/
 skills/
+  AGENTS.md        machine-wide baseline, not a skill
   <skill-name>/
     SKILL.md
     references/    optional
     assets/        optional, skill-local
 ```
 
+- `skills/AGENTS.md` is the global baseline linked into each host's user-level instruction path. It has no metadata and is never loaded as a skill.
 - A skill directory name matches the `name` field in its metadata.
 - Each skill has exactly one `SKILL.md`.
 - The only optional subdirectories are `references/` and `assets/`.
