@@ -102,6 +102,17 @@ A fresh build is the normal case, not an edge case.
 
 If any input is missing, stop and ask.
 
+## Gate tiers
+
+Two tiers of the project gate exist. Use the one that matches what you are about to commit.
+
+| Tier | Covers | Run before |
+|---|---|---|
+| Unit gate | Fast, discriminating checks: static analysis, style and naming checkers, and tests scoped to the unit's changed paths | Every intermediate work-unit commit |
+| Integrated gate | The repository's full verification suite: end-to-end, system integration, and preflight checks | The spec's final integration unit, or final handoff |
+
+Single-gate fallback: when the project defines only one gate command, that command serves both tiers. Say so in the evidence rather than inventing a second command.
+
 ## Rules
 
 - One commit per unit. Never one commit for the whole spec.
@@ -135,7 +146,7 @@ For every unit, in order:
 1. Restate the unit's scope and acceptance in two sentences. If you cannot, stop.
 2. Write the smallest failing check that expresses the missing behavior. Run it and confirm it fails for the right reason.
 3. Implement the smallest change that makes it pass.
-4. Run the gate command and capture the exact result line.
+4. Run the applicable unit gate, not only the new check. On the spec's final integration unit, run the full integrated gate. Capture the exact result line.
 5. Record the unit's evidence and mark its state complete in the spec and progress record.
 6. Stage the explicit implementation files, test files, and updated spec records together.
 7. Read your own diff once, as a reviewer would. Fix what you would flag.

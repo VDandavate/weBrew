@@ -30,11 +30,13 @@ Read-only on production code. May add or adjust tests only after explicit approv
 | Input | Why it is required |
 |---|---|
 | What is under test | A change, a spec unit, a path, or the repository |
-| The project gate command | What the project itself considers passing |
+| The project gate command | What the project itself considers passing. Use a scoped unit gate for an intermediate unit, and the full integrated gate for a completed feature |
 | The stated load | One user or many, so scale checks mean something |
 | Access to a safe environment | A check that cannot run safely is not a check |
 
 If the gate command is unknown, find it before writing any test. If it does not exist, say so and record that gap.
+
+A unit gate is the fast, discriminating subset for a unit's changed paths: static analysis, style and naming checks, and scoped tests. An integrated gate is the repository's full suite: end-to-end, system integration, and preflight checks. Where the project defines only one gate command, that command serves both roles.
 
 ## Build a risk matrix first
 
