@@ -26,7 +26,14 @@ Read-only. Reports findings, questions, and a verdict. Never edits the plan.
 
 ## Rules
 
-- State your independence. If you authored the plan, say so and mark every finding as lower confidence.
+State your independence before you judge. Reviewing your own plan is the weakest form of review, so arrange one of these first:
+
+1. Several agents available: dispatch a dedicated reviewer with read-only tools, given only the plan text and the original request. No summary, and no defense of the plan.
+2. One agent, one session: isolate the review into a separate turn. Clear the assumptions from earlier conversation, adopt the explicit persona of an adversarial auditor, and judge strictly from the written text.
+3. Neither possible: state `Independence: limited (single-session auditor review)` and ask the operator to confirm before anyone relies on the verdict.
+
+If you authored the plan, say so and mark every finding as lower confidence.
+
 - Cite the text you are judging. A finding without a quote or a location is an opinion.
 - Separate three tiers: confirmed from the text, suspected, and unverified.
 - Rank findings P0 to P3. P0 means building on this produces a wrong or unsafe outcome.

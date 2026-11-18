@@ -37,7 +37,11 @@ Read-only until a batch is approved. May stage explicit paths and commit approve
 | Verifier | Independent evidence | Be the author of what it verifies |
 | User | Approval, priority, delivery | — |
 
-At least two distinct agents are required for a real pass. Where the host has one agent, say so, label the result "verified by author" rather than independent, and let the user decide.
+At least two distinct agents are required for a real pass. Assign the roles before the first batch moves:
+
+1. Several subagents available: one subagent per role. The Lead dispatches the Auditor. The Implementer receives only approved batches. The Verifier receives the diff and the gate command, never the Implementer's summary or reasoning.
+2. One agent, sequential turns: run the roles as persona-isolated turns. Close the previous turn's context, state the role you are taking and what that role may not do, and treat each role's output as a written artifact the next role reads cold.
+3. No way to separate the roles: say so, label the result "verified by author" rather than independent, and let the user decide.
 
 ## Process
 
