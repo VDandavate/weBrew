@@ -44,7 +44,10 @@ Check each item. A single failure stops the archival.
 ## Check the destination
 
 - Does the archive location exist? If not, ask where it should be; do not invent one.
-- Does an entry with the same name already exist? If yes, stop unless its content is byte-identical, and then ask before replacing.
+- Does an entry with the same name already exist? Resolve it before anything else:
+  - Byte-identical content: stop and ask before replacing.
+  - A successor, later phase, or redesign of an already-archived spec: never overwrite the prior entry. Propose a structured revision directory such as `<destination>/<featureName>/v2` or `<destination>/<featureName>-v2`, and record the exact path of the archived spec it succeeds.
+  - Unrelated work that merely shares the base name: ask the user which it is. Do not guess.
 - Is the destination inside a directory that is itself published? Archiving into a published area is a defect, not a cleanup.
 - Are other records linking to the path being moved? Note every reference that will break.
 
@@ -55,6 +58,7 @@ Before moving anything, show:
 ```text
 Source:       <exact path or paths>
 Destination:  <exact path>
+Successor to: <none | exact path to prior archived version>
 Method:       <move command, or copy then verify then remove>
 Collisions:   <none | the existing entry and why it is safe>
 References:   <paths that will now point at a retired location>
@@ -84,6 +88,7 @@ Then stop and ask for an explicit yes naming the destination.
 Spec:        <name>
 Complete:    <n>/<n> units, verification: <command and result>
 Moved:       <source> -> <destination>
+Successor to: <none | exact path to prior archived version>
 Count:       <n> files, bytes match
 Collisions:  none | <what existed and why nothing was overwritten>
 Broken links: none | <the references needing an update>
