@@ -135,11 +135,11 @@ For every unit, in order:
 1. Restate the unit's scope and acceptance in two sentences. If you cannot, stop.
 2. Write the smallest failing check that expresses the missing behavior. Run it and confirm it fails for the right reason.
 3. Implement the smallest change that makes it pass.
-4. Run the full gate command, not only the new check. Capture the exact result line.
-5. Read your own diff once, as a reviewer would. Fix what you would flag.
-6. Stage the explicit paths and review what is staged.
-7. Commit, naming the unit outcome and nothing about process.
-8. Record the unit's evidence and mark its state complete in the spec.
+4. Run the gate command and capture the exact result line.
+5. Record the unit's evidence and mark its state complete in the spec and progress record.
+6. Stage the explicit implementation files, test files, and updated spec records together.
+7. Read your own diff once, as a reviewer would. Fix what you would flag.
+8. Commit once for the unit, naming the unit outcome and nothing about process.
 
 ### 4. Stop conditions
 
@@ -198,12 +198,14 @@ Acceptance:  <the acceptance statement>
 Red:         <command> / <failure line>
 Green:       <command> / <result line>
 Gate:        <exact command> / <exact result line>
-Commit:      <short hash>  <subject>
+Commit:      HEAD (staged with this unit) | <subject>
 Scope:       <files changed>
 Not covered: <what this unit leaves unproven>
 ```
 
-End with:
+The evidence block is committed with its unit.
+
+The summary and diff range belong to the handoff report, written after the last commit:
 
 ```text
 Units:       <complete>/<total> complete, <n> blocked
