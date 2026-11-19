@@ -147,7 +147,7 @@ For every unit, in order:
 2. Write the smallest failing check that expresses the missing behavior. Run it and confirm it fails for the right reason.
 3. Implement the smallest change that makes it pass.
 4. Run the applicable unit gate, not only the new check. On the spec's final integration unit, run the full integrated gate. Capture the exact result line.
-5. Record the unit's evidence and mark its state complete in the spec and progress record.
+5. Record the unit's evidence and mark its state complete in the spec and its progress record, one per feature.
 6. Stage the explicit implementation files, test files, and updated spec records together.
 7. Read your own diff once, as a reviewer would. Fix what you would flag.
 8. Commit once for the unit, naming the unit outcome and nothing about process.
