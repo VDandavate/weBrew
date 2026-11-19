@@ -16,7 +16,7 @@ Find what will hurt before anyone writes code.
 
 ## When not to use
 
-- The subject is code. Use Review the Code.
+- The subject is code. Use Audit and Refine.
 - The user wants changes, not findings. Report first, then hand off.
 - Requirements do not exist yet. Use Grill Ideas to Specs.
 
