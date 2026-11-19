@@ -32,7 +32,7 @@ Read-only until a batch is approved. May stage explicit paths and commit approve
 | Role | Owns | May not |
 |---|---|---|
 | Lead | Scope, order, dispatch, reconciliation | Judge its own dispatch, edit specialist output |
-| Auditor | Findings and the clean list | Apply a change |
+| Auditor | Findings and a ranked list of what is worth changing | Apply a change |
 | Implementer | Approved changes only | Widen scope, approve itself |
 | Verifier | Independent evidence | Be the author of what it verifies |
 | User | Approval, priority, delivery | — |
@@ -49,9 +49,9 @@ At least two distinct agents are required for a real pass. Assign the roles befo
 
 State the question being answered, the scope, the exit criteria, and the effort budget. A quality pass that cannot say what would end it will not end.
 
-### 2. Assess or dispatch the assessor
+### 2. Assess, or dispatch the Auditor
 
-Collect the evidence that already exists: gate results, status reports, known defects, open questions. If the picture is unclear, dispatch Audit and Refine in its read-only phase.
+Collect the evidence that already exists: gate results, status reports, known defects, open questions. If the picture is unclear, dispatch Audit and Refine for findings only, before any change is approved.
 
 ### 3. Propose batches
 
@@ -76,11 +76,11 @@ Present the batches and stop. Approval must name the batches. Silence is not app
 
 ### 5. Dispatch
 
-Send each approved batch to the skill that owns it, with its scope, acceptance, and the gate command. Never dispatch a batch whose dependency is incomplete. Never let the implementer also verify.
+Send each approved batch to the skill that owns it, with its scope, acceptance, and the gate command. Audit batches go to Audit and Refine, approved spec units to Build the Specs, and an unexplained defect to Diagnose the Bug. Never dispatch a batch whose dependency is incomplete. Never let the implementer also verify.
 
 ### 6. Verify independently
 
-A different agent re-runs the gates, reads the actual diff, and checks each claim against the artifact. A summary from the implementer is a claim, not evidence.
+Send the verification batch to Test and Verify, run by an agent that did not author the batch. Choosing that agent is your job; the method is the skill's.
 
 Reject a verification that names no command or quotes no result line.
 
