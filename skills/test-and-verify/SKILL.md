@@ -67,6 +67,15 @@ Order the rows by damage if wrong, not by ease of testing.
 8. Classify every result before writing the report.
 9. Stop and report if a check would be destructive, or if the subject cannot be exercised at all.
 
+## Verifying someone else's work
+
+When another author made the change:
+
+- Read the actual diff. Never work from a summary, a changelog, or a commit message.
+- Check each claim against the artifact. A claim you did not reproduce with a command stays unverified.
+- Verify as an agent that did not author the change. If that is impossible, put "verified by author" in the first line of the report.
+- Reject a verification that names no command or quotes no result line.
+
 ## Classification
 
 | Label | Meaning |
