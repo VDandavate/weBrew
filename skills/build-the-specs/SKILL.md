@@ -206,9 +206,10 @@ Spec:        <spec name>
 Unit:        <unit name>
 Acceptance:  <the acceptance statement>
 
-Red:         <command> / <failure line>
-Green:       <command> / <result line>
-Gate:        <exact command> / <exact result line>
+Red:         <command> / exit <code> / <failure line>
+Green:       <command> / exit <code> / <result line>
+Gate:        <exact command> / exit <code> / <exact result line>
+First fail:  <file:line of first failure, or n/a>
 Commit:      HEAD (staged with this unit) | <subject>
 Scope:       <files changed>
 Not covered: <what this unit leaves unproven>
@@ -221,6 +222,9 @@ The summary and diff range belong to the handoff report, written after the last 
 ```text
 Units:       <complete>/<total> complete, <n> blocked
 Diff range:  <first commit>..<last commit>
+Checkout:    <branch or tag at handoff>
+Platform:    <OS and runtime version>
+Elapsed:     <total wall time for the spec>
 ```
 
 ## Output
