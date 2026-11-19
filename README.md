@@ -104,16 +104,18 @@ Confirm discovery by listing what the host reports. A skill that loads without a
 | Kilo | `~/.config/kilo/AGENTS.md` | `~/.agents/skills/` |
 | Zed | `~/.config/zed/AGENTS.md` | `~/.agents/skills/` |
 | Antigravity | `~/.gemini/AGENTS.md` | `~/.gemini/config/skills/` |
+| Cline | `~/.agents/AGENTS.md` | `~/.cline/skills/` |
 
 ```sh
-mkdir -p ~/.codex/skills ~/.config/opencode/skills ~/.agents/skills ~/.gemini/config/skills
+mkdir -p ~/.codex/skills ~/.config/opencode/skills ~/.agents/skills ~/.gemini/config/skills ~/.cline/skills
 ln -s "$PWD/skills/AGENTS.md" ~/.codex/AGENTS.md
 ln -s "$PWD/skills/AGENTS.md" ~/.config/opencode/AGENTS.md
 ln -s "$PWD/skills/AGENTS.md" ~/.config/kilo/AGENTS.md
 ln -s "$PWD/skills/AGENTS.md" ~/.config/zed/AGENTS.md
 ln -s "$PWD/skills/AGENTS.md" ~/.gemini/AGENTS.md
+ln -s "$PWD/skills/AGENTS.md" ~/.agents/AGENTS.md
 for d in "$PWD"/skills/*/; do
-  for root in ~/.codex/skills ~/.config/opencode/skills ~/.agents/skills ~/.gemini/config/skills; do
+  for root in ~/.codex/skills ~/.config/opencode/skills ~/.agents/skills ~/.gemini/config/skills ~/.cline/skills; do
     ln -sfn "$d" "$root/$(basename "$d")"
   done
 done
