@@ -58,6 +58,7 @@ Before moving anything, show:
 ```text
 Source:       <exact path or paths>
 Destination:  <exact path>
+Revision:     <spec revision or tag at handoff>
 Successor to: <none | exact path to prior archived version>
 Method:       <move command, or copy then verify then remove>
 Collisions:   <none | the existing entry and why it is safe>
@@ -88,6 +89,7 @@ Then stop and ask for an explicit yes naming the destination.
 Spec:        <name>
 Complete:    <n>/<n> units, verification: <command and result>
 Moved:       <source> -> <destination>
+Revision:    <spec revision or tag at handoff>
 Successor to: <none | exact path to prior archived version>
 Count:       <n> files, bytes match
 Collisions:  none | <what existed and why nothing was overwritten>
